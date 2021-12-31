@@ -9,6 +9,7 @@ import fileUpload from 'express-fileupload';
 
 import userRoutes from './routes/usuario';
 import postRoutes from './routes/post';
+import { Router } from 'express';
 
 const server = new Server();
 
@@ -31,6 +32,13 @@ mongoose.connect(String(process.env.DB_URI), (err) => {
     if (err) throw err;
     console.log('Base de datos ONLINE');
     server.start();
+});
+
+Router().get('/', (req, res) => {
+    res.json({
+        ok: true,
+        message: 'Todo OK'
+    });
 });
 
 
