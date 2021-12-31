@@ -21,6 +21,8 @@ postRoutes.get('/', async (req: any, res: Response) => {
                             .populate('usuario', '-password')
                             .exec();
 
+    res.header('Access-Control-Allow-Origin', '*')
+
     res.json({
         ok: true,
         pagina,

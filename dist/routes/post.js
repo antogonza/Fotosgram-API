@@ -29,6 +29,7 @@ postRoutes.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         .limit(10)
         .populate('usuario', '-password')
         .exec();
+    res.header('Access-Control-Allow-Origin', '*');
     res.json({
         ok: true,
         pagina,
